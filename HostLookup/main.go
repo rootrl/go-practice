@@ -1,28 +1,24 @@
 package main
 
 import (
-"fmt"
-"os"
-"net"
+	"fmt"
+	"net"
+	"os"
 )
 
 func main() {
 
-host := os.Args[1]
+	host := os.Args[1]
 
-addrs, err:= net.LookupHost(host)
+	addrs, err := net.LookupHost(host)
 
+	if err != nil {
 
-if err != nil {
+		panic(err)
+	}
 
-panic(err)
-}
-
-
-
-for k, v:= range addrs {
-fmt.Println(k, v)
-}
-
+	for k, v := range addrs {
+		fmt.Println(k, v)
+	}
 
 }
