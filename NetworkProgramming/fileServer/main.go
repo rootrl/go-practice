@@ -13,6 +13,8 @@ func main() {
 	http.HandleFunc("/cgi-bin/printenv", printEnv)
 
 	http.HandleFunc("/hello", hello)
+
+	http.HandleFunc("/jump", jump)	
 	
 	err := http.ListenAndServe(":8000", nil)
 
@@ -21,6 +23,10 @@ func main() {
 		os.Exit(1)
 	}
 
+}
+
+func jump(writer http.ResponseWriter, req *http.Request) {
+writer.Write([]byte("<meta http-equiv='refresh' content='0; url=http://m.llq.goodjobs.lab' />"))
 }
 
 func hello(writer http.ResponseWriter, req *http.Request) {
