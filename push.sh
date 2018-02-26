@@ -2,6 +2,6 @@
 
 git add .
 
-git commit -m "normal push {$1}" .
+git commit -m "normal push $1" .
 
 git push

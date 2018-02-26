@@ -1,9 +1,9 @@
 package main
 
 import (
-	"html/template"
-	"fmt"
 	"bytes"
+	"fmt"
+	"html/template"
 	"net/http"
 )
 
@@ -59,14 +59,14 @@ func main() {
 		panic(err)
 	}
 	strings := bytes.NewBuffer(nil)
-	
+
 	err = t.Execute(strings, person)
 	fmt.Println(strings)
 
 	var buf [512]byte
-	
+
 	for {
-		n,err := strings.Read(buf[0:])
+		n, err := strings.Read(buf[0:])
 		if err != nil {
 			break
 		}
@@ -74,13 +74,13 @@ func main() {
 	}
 
 	http.HandleFunc("/", print)
-	err = http.ListenAndServe(":8000", nil) 
+	err = http.ListenAndServe(":8000", nil)
 	if err != nil {
 		panic(err)
 	}
 }
 
 func print(writer http.ResponseWriter, req *http.Request) {
-writer.Write([]byte(bufStrings))
+	writer.Write([]byte(bufStrings))
 
 }

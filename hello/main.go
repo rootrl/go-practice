@@ -6,15 +6,7 @@ import (
 
 func main() {
 
-	err := getN()
+	s := "s"
 
-	fmt.Println(err)
-}
-
-func getN() {
-
-n := 2
-err := "err"
-
-return
+	fmt.Println(cap([]byte(s)))
 }

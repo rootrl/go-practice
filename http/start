@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+nohup ./http > ./1.txt &
